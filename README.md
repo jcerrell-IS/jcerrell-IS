@@ -19,9 +19,10 @@ Can a specific car cross a specific flooded road? I compared three answers of in
 depth rule of thumb, the published Australian Rainfall and Runoff (AR&R) vehicle hazard criterion,
 and a coupled material point method (MPM) simulation of water and a rigid vehicle hull on GPUs.
 
-- **17 simulation runs with a complete provenance record.** Every run records its code commit,
-  solver version, mesh hash and grid settings: 10 of 10 fields present on all 17 runs, zero
-  unresolved commits, zero mesh mismatches.
+- **17 simulation runs with a provenance record that says how each field was obtained.** Each
+  run logged its own grid and physics settings. The code commit, solver version and mesh hash
+  were filled in afterwards and are labelled that way: the commit is a reconstruction, not a
+  record of what ran.
 - **Caught a rule being applied halfway.** The depth x velocity product on its own is only part of
   the published AR&R rule, and an earlier version of this project's own code used it that way.
   Applying the full two-part rule for the car's class moved 23 of 70 flood scenarios to NO-FORD,
