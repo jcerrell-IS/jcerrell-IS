@@ -1,58 +1,42 @@
 # Josephine Cerrell
 
-Integrated Sciences student at Claremont McKenna College. I build GPU physics simulations, and the
-checks that make their results trustworthy.
+Integrated Sciences student at Claremont McKenna College (class of 2029).
 
-**Summer 2026:** NSF SCIPE REU scholar (Chishiki AI scholarship), GeoElements Lab, UT Austin, with
-simulation work on TACC's Vista (NVIDIA GH200) and Lonestar6 (NVIDIA A100) systems.
-PI: Dr. Krishna Kumar.
+**Summer 2026:** NSF REU student at the Texas Advanced Computing Center (TACC), UT Austin, in
+Dr. Krishna Kumar's GeoElements Lab.
 
 ---
 
-## Featured project: Can It Ford?
+## Project: Can It Ford?
 
-<img src="hero.png" alt="Coupled material point method simulation of water flowing around a Toyota Yaris hull, water coloured by speed" width="720">
+<img src="hero.png" alt="Simulated water particles colored by speed flowing around a Toyota Yaris" width="720">
 
-*Water coloured by speed around a 1,100 kg Toyota Yaris hull, run g64_m1100 from the 17-run sweep.*
+*Simulated water around a Toyota Yaris, colored by speed (from one of the first runs).*
 
-Can a specific car cross a specific flooded road? I compared three answers of increasing cost: a
-depth rule of thumb, the published Australian Rainfall and Runoff (AR&R) vehicle hazard criterion,
-and a coupled material point method (MPM) simulation of water and a rigid vehicle hull on GPUs.
+Can a car safely drive through a flooded road? I compared three ways of answering: a simple
+water-depth rule, the Australian flood guideline for vehicles (AR&R), and a GPU simulation of
+water flowing around a 2010 Toyota Yaris.
 
-- **Found that a first result was an artifact, and rebuilt the experiment.** The first 17 coupled
-  runs set all the water moving in one step inside a closed tank, so the car's drift measured that
-  start-up surge rather than a current. I withdrew their verdicts and started a steady-current
-  campaign instead: 46 runs on Lonestar6 A100s so far (45 completed), with up to 18.5 million
-  water particles each. It has produced flow fields and diagnostics, not a verdict yet.
-- **17 simulation runs with a provenance record that says how each field was obtained.** Each
-  run logged its own grid and physics settings. The code commit, solver version and mesh hash
-  were filled in afterwards and are labelled that way: the commit is a reconstruction, not a
-  record of what ran.
-- **Caught a rule being applied halfway.** The depth x velocity product on its own is only part of
-  the published AR&R rule, and an earlier version of this project's own code used it that way.
-  Applying the full rule for the car's class moved 23 of 70 flood scenarios to NO-FORD,
-  and none the other way.
-- **3D scene reconstruction.** Trained a 1,147,694-Gaussian splat of a real drainage crossing with
-  gsplat (30,000 iterations, PSNR 22.74).
-- **Open results.** An interactive demo, published datasets with full data cards, and tests in
-  GitHub Actions that check every row of the published scenario sweep against the code.
+- Found that using the full AR&R guideline, instead of the depth x speed shortcut people often
+  use, changes 23 of 70 flood cases from safe to unsafe.
+- Ran the simulations on TACC's Lonestar6 and Vista supercomputers. My first 17 runs turned out to
+  be measuring the start of the flow instead of a steady current, so I set those results aside and
+  started a new set of 46 runs. That set doesn't have a final answer yet.
+- Recorded the settings for every run so the results can be checked and repeated.
+- Made a 3D model of a real flooded drainage crossing from video using Gaussian splatting.
+- Added two features to the lab's simulation code for loading car models, and fixed a bug in it:
+  [jcerrell-IS/mpm-engine](https://github.com/jcerrell-IS/mpm-engine).
 
 [Paper](https://github.com/jcerrell-IS/can-it-ford/blob/main/public_release/Cerrell_CanItFord_paper.pdf) ·
 [Code](https://github.com/jcerrell-IS/can-it-ford) ·
 [Live demo](https://huggingface.co/spaces/josiecerrell/can-it-ford) ·
 [Simulation records](https://huggingface.co/datasets/josiecerrell/can-it-ford-steady-force) ·
-[Scenario data](https://huggingface.co/datasets/josiecerrell/can-it-ford-scenario-sweep) ·
-[Load-surface data](https://huggingface.co/datasets/josiecerrell/can-it-ford-speed-surface)
+[Scenario data](https://huggingface.co/datasets/josiecerrell/can-it-ford-scenario-sweep)
 
-I also contributed watertight-mesh particle seeding and content-based PLY loading to a fork of the
-lab's Warp-based MPM engine: [jcerrell-IS/mpm-engine](https://github.com/jcerrell-IS/mpm-engine).
+## Tools
 
----
-
-## Tools I used in this work
-
-Python · NumPy · matplotlib · NVIDIA Warp (warpmpm) · gsplat · Slurm on TACC · Linux ·
-Git and GitHub Actions · Gradio · Hugging Face Hub · Weights & Biases
+Python, NumPy, matplotlib, NVIDIA Warp, gsplat, Slurm, Linux, Git, GitHub Actions, Gradio,
+Hugging Face
 
 ## Contact
 
