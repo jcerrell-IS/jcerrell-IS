@@ -37,6 +37,7 @@ and a coupled material point method (MPM) simulation of water and a rigid vehicl
 - **Open results.** An interactive demo, published datasets with full data cards, and tests in
   GitHub Actions that check every row of the published scenario sweep against the code.
 
+[Paper](https://github.com/jcerrell-IS/can-it-ford/blob/main/public_release/Cerrell_CanItFord_paper.pdf) ·
 [Code](https://github.com/jcerrell-IS/can-it-ford) ·
 [Live demo](https://huggingface.co/spaces/josiecerrell/can-it-ford) ·
 [Simulation records](https://huggingface.co/datasets/josiecerrell/can-it-ford-steady-force) ·
