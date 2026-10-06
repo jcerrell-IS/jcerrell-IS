@@ -19,22 +19,27 @@ Can a specific car cross a specific flooded road? I compared three answers of in
 depth rule of thumb, the published Australian Rainfall and Runoff (AR&R) vehicle hazard criterion,
 and a coupled material point method (MPM) simulation of water and a rigid vehicle hull on GPUs.
 
+- **Found that a first result was an artifact, and rebuilt the experiment.** The first 17 coupled
+  runs set all the water moving in one step inside a closed tank, so the car's drift measured that
+  start-up surge rather than a current. I withdrew their verdicts and started a steady-current
+  campaign instead: 46 runs on Lonestar6 A100s so far (45 completed), with up to 18.5 million
+  water particles each. It has produced flow fields and diagnostics, not a verdict yet.
 - **17 simulation runs with a provenance record that says how each field was obtained.** Each
   run logged its own grid and physics settings. The code commit, solver version and mesh hash
   were filled in afterwards and are labelled that way: the commit is a reconstruction, not a
   record of what ran.
 - **Caught a rule being applied halfway.** The depth x velocity product on its own is only part of
   the published AR&R rule, and an earlier version of this project's own code used it that way.
-  Applying the full two-part rule for the car's class moved 23 of 70 flood scenarios to NO-FORD,
+  Applying the full rule for the car's class moved 23 of 70 flood scenarios to NO-FORD,
   and none the other way.
 - **3D scene reconstruction.** Trained a 1,147,694-Gaussian splat of a real drainage crossing with
   gsplat (30,000 iterations, PSNR 22.74).
-- **Open results.** An interactive demo, published datasets with full data cards, and automated
-  checks that run in GitHub Actions.
+- **Open results.** An interactive demo, published datasets with full data cards, and tests in
+  GitHub Actions that check every row of the published scenario sweep against the code.
 
 [Code](https://github.com/jcerrell-IS/can-it-ford) ·
 [Live demo](https://huggingface.co/spaces/josiecerrell/can-it-ford) ·
-[Findings](https://huggingface.co/spaces/josiecerrell/can-it-ford-findings) ·
+[Simulation records](https://huggingface.co/datasets/josiecerrell/can-it-ford-steady-force) ·
 [Scenario data](https://huggingface.co/datasets/josiecerrell/can-it-ford-scenario-sweep) ·
 [Load-surface data](https://huggingface.co/datasets/josiecerrell/can-it-ford-speed-surface)
 
