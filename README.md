@@ -11,7 +11,8 @@ Dr. Krishna Kumar's GeoElements Lab.
 
 <img src="hero.png" alt="Simulated water particles colored by speed flowing around a Toyota Yaris" width="720">
 
-*Simulated water around a Toyota Yaris, colored by speed (from one of the first runs).*
+*Simulated water around a Toyota Yaris, colored by speed. This is from one of the first runs, whose
+results I later withdrew because they measured the start of the flow instead of a steady current.*
 
 Can a car safely drive through a flooded road? I compared three ways of answering: a simple
 water-depth rule, the Australian flood guideline for vehicles (AR&R), and a GPU simulation of
