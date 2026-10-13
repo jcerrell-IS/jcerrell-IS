@@ -23,7 +23,8 @@ water flowing around a 2010 Toyota Yaris.
 - Ran the simulations on TACC's Lonestar6 and Vista supercomputers. My first 17 runs turned out to
   be measuring the start of the flow instead of a steady current, so I set those results aside and
   started a new set of 46 runs. That set doesn't have a final answer yet.
-- Recorded the settings for every run so the results can be checked and repeated.
+- Recorded, for every run, which settings the run saved itself and which were filled in later, and
+  wrote checks that run on those records automatically with every change to the code.
 - Made a 3D model of a real flooded drainage crossing from video using Gaussian splatting.
 - Added two features to the lab's simulation code for loading car models, and fixed a bug in it:
   [jcerrell-IS/mpm-engine](https://github.com/jcerrell-IS/mpm-engine).
