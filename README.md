@@ -24,7 +24,7 @@ water flowing around a 2010 Toyota Yaris.
   be measuring the start of the flow instead of a steady current, so I set those results aside and
   started a new set of 46 runs. That set doesn't have a final answer yet.
 - Recorded, for every run, which settings the run itself saved and which were filled in later, and
-  wrote checks that run automatically on every push against copies of the first 17 runs' records.
+  wrote checks that run automatically, on pushes to main and on pull requests, against copies of the first 17 runs' records.
 - Made a 3D model of a real drainage crossing from video using Gaussian splatting.
 - In my fork of the lab's simulation engine, added particle seeding from watertight car meshes and
   fixed a bug, still present upstream, that broke loading of mesh `.ply` files:
